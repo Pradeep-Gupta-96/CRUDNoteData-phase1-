@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 
 
+
 //====================input css ========================================== 
 const CssTextField = styled(TextField)({
   '& label.Mui-focused': {
@@ -28,9 +29,8 @@ const CssTextField = styled(TextField)({
 });
 
 const Listedvalue = { name: "", email: "", companytype: "", template: "" }
-const AddNotice = () => {
+const Edite = ({id}) => {
   const [list, setList] = useState(Listedvalue);
-
   const email = [
     { name: "Areness1@gmail.com" },
     { name: "Areness2@gmail.com" },
@@ -54,10 +54,11 @@ const AddNotice = () => {
     setList({ ...list, [name]: value })
   };
 
+//  for update list data==========
   const Submit = async () => {
     try {
-      const res = await fetch("http://localhost:4000/notes", {
-        method: "post",
+      const res = await fetch(`http://localhost:4000/notes/${id}`, {
+        method: "put",
         headers: {
           'Content-Type': 'application/json'
         },
@@ -86,7 +87,6 @@ const AddNotice = () => {
     } catch (error) {
       console.log(error)
     }
-
   }
 
   return (
@@ -136,4 +136,4 @@ const AddNotice = () => {
   )
 }
 
-export default AddNotice
+export default Edite

@@ -1,9 +1,10 @@
 import express from 'express'
-import  { addnote, deletnote }  from '../controllers/noteController.js'
+import { addnote, deletOneData, getdata, putOneData } from '../controllers/noteController.js'
 const noteRoute = express.Router()
 
-noteRoute.get('/', addnote)
-noteRoute.post('/',addnote)
-noteRoute.put('/',deletnote)
+noteRoute.get('/', getdata)
+noteRoute.post('/', addnote)
+noteRoute.put('/:id', putOneData)
+noteRoute.delete('/:id', deletOneData)
 
 export default noteRoute

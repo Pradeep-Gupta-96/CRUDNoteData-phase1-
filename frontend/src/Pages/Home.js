@@ -5,9 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
 import AddNotice from './AddNotice';
-
-
-
+import Noticetable from '../noticetables/Noticetable';
 
 const StyledFab = styled(Fab)({
   position: 'absolute',
@@ -71,44 +69,46 @@ const Home = () => {
         <Navbar />
         <Box component="main" sx={{ flexGrow: 1, p: 4, mt: 6 }}>
           <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ backgroundColor: "#ffffff", color: "#2f2f2f" }}>
+            <AppBar position="static" sx={{ backgroundColor: "#01579b", color: "#ffffff" }}>
               <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
                   Home
                 </Typography>
-                <StyledFab color="medium" aria-label="add" onClick={handleClickOpen} >
-                  <AddIcon />
+                <StyledFab color="medium" aria-label="add" title="Click Me! || add notice" onClick={handleClickOpen} >
+                  <AddIcon color="#3e2723" />
                 </StyledFab>
               </Toolbar>
             </AppBar>
 
             {/*================== popup from=============================  */}
+
+            <BootstrapDialog
+              onClose={handleClose}
+              aria-labelledby="customized-dialog-title"
+              open={open}
+            >
+              <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+                Modal title
+              </BootstrapDialogTitle>
+              <DialogContent dividers>
+                <Typography gutterBottom component={'span'}>
+                  {/* ================================================  */}
+                  <AddNotice />
+
+                </Typography>
+              </DialogContent>
+              <DialogActions>
+                <Button autoFocus onClick={handleClose}>
+                  Save!
+                </Button>
+              </DialogActions>
+            </BootstrapDialog>
             
-              <BootstrapDialog
-                onClose={handleClose}
-                aria-labelledby="customized-dialog-title"
-                open={open}
-              >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                  Modal title
-                </BootstrapDialogTitle>
-                <DialogContent dividers>
-                  <Typography gutterBottom component={'span'}>
-                    {/* ================================================  */}
-                    <AddNotice />
-
-                  </Typography>
-                </DialogContent>
-                <DialogActions>
-                  <Button autoFocus onClick={handleClose}>
-                    Save!
-                  </Button>
-                </DialogActions>
-              </BootstrapDialog>
-           
-
-
           </Box>
+
+          {/* =============================================table notice==========  */}
+          <Noticetable />
+
         </Box>
       </Box>
     </>

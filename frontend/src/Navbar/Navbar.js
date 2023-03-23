@@ -105,13 +105,13 @@ export default function Navbar() {
   const itemsList = [
     {
       text: "Home",
-      icon: <AddHomeWorkIcon />,
+      icon: <AddHomeWorkIcon  color="secondary"/>,
       forNavigation: () => { navigate('/') }
 
     },
     {
       text: "Upload Users",
-      icon: <GroupAddIcon />,
+      icon: <GroupAddIcon  color="primary"/>,
       forNavigation: () => { navigate('/uploadusers') }
     }
   ];
@@ -122,7 +122,7 @@ export default function Navbar() {
       <CssBaseline />
 
       {/*================= brandname ===========*/}
-      <AppBar position="fixed" sx={{ backgroundColor: "#ffffff", color: "#2f2f2f" }} >
+      <AppBar position="fixed" sx={{ backgroundColor: "#3e2723", color: "#ffffff" }} >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -143,8 +143,8 @@ export default function Navbar() {
 
 
       {/*================= Drawer ===========*/}
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
+      <Drawer variant="permanent" open={open}  >
+        <DrawerHeader  >
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
@@ -154,8 +154,8 @@ export default function Navbar() {
           const { text, icon, forNavigation } = item;
           return (
             <>
-              <List key={index}>
-                <ListItem disablePadding sx={{ display: 'block' }} onClick={forNavigation} >
+              <List key={index}  sx={{ backgroundColor: "#3e2723", color: "#ffffff" }}>
+                <ListItem disablePadding sx={{ display: 'block' }} onClick={forNavigation}  >
                   <ListItemButton
                     sx={{
                       minHeight: 48,
@@ -163,11 +163,12 @@ export default function Navbar() {
                       px: 2.5,
                     }}
                   >
-                    {icon && <ListItemIcon
+                    {icon && <ListItemIcon 
                       sx={{
                         minWidth: 0,
                         mr: open ? 3 : 'auto',
                         justifyContent: 'center',
+                        
                       }}
                     >{icon}
                     </ListItemIcon>}

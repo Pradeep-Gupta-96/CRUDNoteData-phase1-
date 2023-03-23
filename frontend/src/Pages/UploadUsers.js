@@ -23,13 +23,13 @@ const UploadUsers = () => {
         <Navbar />
         <Box component="main" sx={{ flexGrow: 1, p: 4, mt: 6 }}>
           <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ backgroundColor: "#ffffff", color: "#2f2f2f" }}>
+            <AppBar position="static" sx={{ backgroundColor: "#01579b", color: "#ffffff" }}>
               <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                   Upload Users!
                 </Typography>
-                <StyledFab color="secondary" aria-label="add">
-                  <DriveFolderUploadIcon />
+                <StyledFab color="medium" aria-label="add">
+                  <DriveFolderUploadIcon  color="secondary"/>
                 </StyledFab>
               </Toolbar>
             </AppBar>
