@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 const main = async () => {
     try {
-        await mongoose.connect('mongodb+srv://mrlucifer9651:Lucifer1234@cluster0.zbwjrqi.mongodb.net/?retryWrites=true&w=majority');
+        await mongoose.connect('mongodb+srv://mrlucifer9651:<password>@cluster0.zbwjrqi.mongodb.net/?retryWrites=true&w=majority');
         console.log("DB connected")
     } catch (error) {
         console.log(error)
